@@ -1,0 +1,30 @@
+.Roboto {
+  font-family: "Roboto", sans-serif;
+  font-weight: var(--fw-normal);
+  font-style: normal;
+  font-variation-settings: "wght" 100;
+  font-optical-sizing: auto;
+}
+* {
+  font-family: "Roboto";
+  overflow: hidden;
+  color: var(--white);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden auto;
+  background-color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+  text-transform: none;
+}

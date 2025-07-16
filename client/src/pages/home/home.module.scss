@@ -1,0 +1,13 @@
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/home.png');
+    background-size: cover;
+    background-position: center;
+    transform: rotate(0deg);
+    opacity: 1;
+    z-index: -1;
+}
