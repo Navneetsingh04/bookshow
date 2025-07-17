@@ -5,14 +5,14 @@ import Navbar from "../components/molecules/navbar/Navbar";
 import Footer from "../components/molecules/footer/Footer";
 const Layout = () => {
   return (
-    <div className={style.conatiner}>
+    <main className={style.container}>
       {/* Header */}
         <Navbar />
       {/* Outlet */}
       <Outlet />
       {/* Footer */}
-      {/* <Footer/> */}
-    </div>
+      <Footer/>
+    </main>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import Pages from "./pages/Index.jsx";
-import Layout from "./layout/layout.jsx";
+import Layout from "./layout/Layout.jsx";
 
 function App() {
   return (

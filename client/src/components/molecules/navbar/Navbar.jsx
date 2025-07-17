@@ -14,12 +14,12 @@ const Navbar = () => {
       <img src={logo} alt="logo" />
 
       {/* Middle  */}
-      <ul>
-        <li>Home</li>
-        <li>Movies</li>
-        <li>Theatres</li>
-        <li>Release</li>
-      </ul>
+       <nav className={style.nav}>
+        <a>Home</a>
+        <a>Movies</a>
+        <a>Theaters</a>
+        <a>Releases</a>
+      </nav>
 
       {/* right side */}
       <div className={style.right}>

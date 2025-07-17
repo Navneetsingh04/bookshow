@@ -2,19 +2,17 @@
   font-family: "Roboto", sans-serif;
   font-weight: var(--fw-normal);
   font-style: normal;
-  font-variation-settings: "wght" 100;
+  font-variation-settings: "wdth" 100;
   font-optical-sizing: auto;
 }
 * {
   font-family: "Roboto";
-  overflow: hidden;
   color: var(--white);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden auto;
   background-color: var(--black);
 }
@@ -27,4 +25,7 @@ h5,
 h6 {
   overflow: hidden;
   text-transform: none;
+}
+a{
+  cursor: pointer;
 }
