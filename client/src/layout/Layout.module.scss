@@ -1,8 +1,13 @@
 .container {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   flex-direction: column;
   // border: 1px solid green;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
 }

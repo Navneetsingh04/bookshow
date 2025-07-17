@@ -1,23 +1,34 @@
-import React from 'react'
+import React from "react";
 import style from "./Card.module.scss";
-const Card = () => {
+import Button from "../../atoms/buttons/Button";
+import Star from "../../../assets/Star.png";
+const Card = ({movie}) => {
+  const clickHandler = () => {
+    console.log("buy Ticket clicked");
+  }
+  
+  const {title, genre, year, duration, rating, image} = movie;
+
   return (
     <main className={style.container}>
-        <article className={style.card}>
-            <img src="https://via.placeholder.com/150" alt="Movie Poster" />
-            <h2>Movie Title</h2>
-            <p>Action | Adventure | Sci-Fi</p>
-            <p>
-                <span>Release Date: 2018</span>
-                <span>Duration: 2h 8m</span>
-            </p>
-            <div className={style.description}>
-                In a post-apocalyptic world where cities ride on wheels and consume each other to survive, two people meet in London and try to stop a conspiracy.
-            </div>
-            
-        </article>
+      <article>
+        <img src={image} alt={title} />
+        <h2>{title}</h2>
+        <p>{year} - {genre} - {duration}</p>
+        <div className={style.cardActions}>
+          <Button
+            className={style["card-btn"]}
+            text="Buy Ticket"
+            onClick={clickHandler}
+          />
+          <span className={style["rating"]}>
+            <img src={Star} alt="rating" />
+            {rating}
+          </span>
+        </div>
+      </article>
     </main>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

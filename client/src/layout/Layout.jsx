@@ -7,9 +7,11 @@ const Layout = () => {
   return (
     <main className={style.container}>
       {/* Header */}
-        <Navbar />
+      <Navbar />
       {/* Outlet */}
-      <Outlet />
+      <div className={style.content}>
+        <Outlet />
+      </div>
       {/* Footer */}
       <Footer/>
     </main>
