@@ -4,8 +4,8 @@
   margin: 0 auto;
   position: relative;
   z-index: -1;
- 
-  > .header{
+
+  > .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,9 +28,21 @@
   }
 
   .moviesGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
+  }
 }
+.button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > .showmore-btn {
+    width: 159px;
+    height: 42px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 }

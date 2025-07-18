@@ -3,9 +3,8 @@ import style from "./Hero.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Button from "../../../../components/atoms/buttons/Button";
 const Hero = () => {
-
   const clickHandler = () => {
-    console.log("Explore Clicked!")
+    console.log("Explore Clicked!");
   };
   return (
     <section className={style.container}>
@@ -22,7 +21,7 @@ const Hero = () => {
             2018
           </span>
           <span>
-            <Icon icon={"mdi:clock"} />
+            <Icon icon={"icon-park-outline:time"} />
             2h 8m
           </span>
         </p>
@@ -32,10 +31,10 @@ const Hero = () => {
           conspiracy.
         </p>
         <Button
-          className={style["explore-btn"]}
+          className={style["button"]}
           text="Explore Movies"
           fIcon={"solar:arrow-right-linear"}
-          onClick={clickHandler}
+          clickHandler={clickHandler}
         />
       </article>
     </section>

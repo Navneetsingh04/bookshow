@@ -24,7 +24,7 @@ const Navbar = () => {
       {/* right side */}
       <div className={style.right}>
       <Icon icon={"ic:outline-search"}/>
-      <Button text="Login" onClick={handleLogin} />
+      <Button text="Login" clickHandler={handleLogin} />
       </div>
     </article>
   );

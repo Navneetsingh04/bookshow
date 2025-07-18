@@ -1,11 +1,11 @@
 .container {
-  background-color: var(--dark);
+  display: flex;
+  padding: 15px;
+  height: 340px;
   width: 268px;
-  height: 356px;
+  flex-direction: column;
+  background-color: var(--dark);
   border-radius: 16px;
-  position: relative;
-  padding: 16px;
-  box-sizing: border-box;
   
   > article {
     width: 100%;
@@ -16,7 +16,7 @@
 
     > img {
       width: 100%;
-      height: 163px;
+      height: 168px;
       border-radius: 6px;
       margin-bottom: 16px;
     }
@@ -37,17 +37,16 @@
     }
     
     > .cardActions {
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
       margin-top: auto;
 
-      > .card-btn {
+      > .btn {
         width: 106px;
         height: 38px;
-        border-radius: 32px;
-        cursor: pointer;
       }
 
       > .rating {

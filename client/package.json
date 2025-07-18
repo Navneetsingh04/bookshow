@@ -15,7 +15,8 @@
     "hamburger-react": "^2.5.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.3",
+    "react-player": "^3.3.1",
+    "react-router": "^7.7.0",
     "scss": "^0.2.4"
   },
   "devDependencies": {

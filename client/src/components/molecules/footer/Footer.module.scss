@@ -3,7 +3,6 @@
   width: auto;
   padding: 10px 30px;
   grid-template-rows: auto 50px;
-  border: 1px solid blue;
 
   .top {
     display: grid;
@@ -74,6 +73,5 @@
     font-size: var(--fs-md);
     justify-content: center;
     border-top: 1px solid var(--grey);
-    border: 1px solid green;
   }
 }

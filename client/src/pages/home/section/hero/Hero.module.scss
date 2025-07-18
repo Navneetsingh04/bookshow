@@ -42,14 +42,14 @@
 
       }
     }
-    .description {
+    > .description {
       display: block;
       width: 80%;
       margin-top: 20px;
-      color: var((--grey));
+      color: var(--grey);
       font-size: var(--fs-md);
     }
-    .explore-btn {
+    > .button {
       width: auto;
       margin-top: 20px;
       max-width: 200px;
