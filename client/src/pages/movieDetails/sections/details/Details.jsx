@@ -52,7 +52,7 @@ const Details = () => {
       
         {/* Cast */}
         <div className={style.cast}>
-          <h2>Your Favorite Cast</h2>
+          <h3>Your Favorite Cast</h3>
           <div className={style.castList}>
             {castData.slice(0, 6).map((actor, index) => (
               <div key={actor.id} className={style.castItem}>

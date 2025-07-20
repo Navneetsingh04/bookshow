@@ -1,11 +1,44 @@
-import React from 'react'
-import style from './Booking.module.scss'
-const Booking = () => {
-  return (
-    <div>
-      <h1>Booking page</h1>
-    </div>
-  )
-}
+import React, { useState } from "react";
+import style from "./Booking.module.scss";
+import Button from "../../../../components/atoms/buttons/Button";
+import dates from "../../../../data/dayDate.json"
+import { Icon } from "@iconify/react";
 
-export default Booking
+const Booking = () => {
+  const [selected, setSelected] = useState(16);
+
+  return (
+    <main className={style.container}>
+      <h3>Choose Date</h3>
+      <div className={style.content}>
+        <div className={style.datePicker}>
+          <button className={style.arrow}>
+            <Icon icon="mdi:chevron-left" />
+          </button>
+          {dates.map((d) => (
+            <button
+              key={d.date}
+              className={`${style["date-btn"]} ${
+                selected === d.date ? style.active : ""
+              }`}
+              onClick={() => setSelected(d.date)}
+            >
+              <span>{d.day}</span>
+              <span>{d.date}</span>
+            </button>
+          ))}
+          <button className={style.arrow}>
+            <Icon icon="mdi:chevron-right" />
+          </button>
+        </div>
+        <Button
+          className={style["book-now-btn"]}
+          text="Book Now"
+          clickHandler={() => console.log("Booking confirmed")}
+        />
+      </div>
+    </main>
+  );
+};
+
+export default Booking;
