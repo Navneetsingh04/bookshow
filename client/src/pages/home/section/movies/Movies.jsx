@@ -24,7 +24,7 @@ const Movies = () => {
             <Card
               key={movie.id}
               {...movie}
-              clickHandler={() => navigate(`/${movie.id}`)}
+              clickHandler={() => navigate(`/movies/${movie.id}`)}
             />
           ))}
         </div>

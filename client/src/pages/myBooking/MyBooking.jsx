@@ -31,7 +31,7 @@ const MyBooking = () => {
               Total Tickets: <span>{booking.totalTickets}</span>
             </p>
             <p>
-              Seat Number: <span>{booking.seatNumbers.join(", ")}</span>
+              Seat Number: <span>{`${booking.seatNumbers} ,`}</span>
             </p>
           </div>
         </div>

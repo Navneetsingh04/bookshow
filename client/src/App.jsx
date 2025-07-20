@@ -7,8 +7,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Pages.Home />} />
-        <Route path="/:id" element={<Pages.MovieDetails />} />
-        <Route path="/mybooking" element={<Pages.MyBooking />} />
+        <Route path="movies" element={<Pages.MoviesPage />} />
+        <Route path="movies/:id" element={<Pages.MovieDetails />} />
+        <Route path="mybooking" element={<Pages.MyBooking />} />
       </Route>
     </Routes>
   );

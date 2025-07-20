@@ -2,10 +2,9 @@ import marvelLogo from "../../../../assets/marvelLogo.svg";
 import style from "./Hero.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Button from "../../../../components/atoms/buttons/Button";
+import { useNavigate } from "react-router";
 const Hero = () => {
-  const clickHandler = () => {
-    console.log("Explore Clicked!");
-  };
+  const navigate = useNavigate();
   return (
     <section className={style.container}>
       <article>
@@ -34,7 +33,7 @@ const Hero = () => {
           className={style["button"]}
           text="Explore Movies"
           fIcon={"solar:arrow-right-linear"}
-          clickHandler={clickHandler}
+          clickHandler={() => navigate("/movies")}
         />
       </article>
     </section>

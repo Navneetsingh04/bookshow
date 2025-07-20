@@ -40,7 +40,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        color:#D1D5DC;
+        color: #d1d5dc;
         font-size: var(--fs-md);
         font-family: Heebo, sans-serif;
         img {
@@ -91,48 +91,4 @@
       }
     }
   }
-   .cast{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 60px;
-    
-        > h2 {
-            font-size: var(--fs-lg);
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-    
-        > .castList {
-          padding-top: 30px;
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            flex-wrap: wrap;
-    
-            > .castItem {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--secondary-dark);
-    
-            > img {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 8px;
-                background-color: var(--secondary-dark);
-            }
-    
-            > p {
-                font-size: 14px;
-                text-align: center;
-                margin: 0;
-                max-width: 100px;
-                overflow: hidden;
-            }
-            }
-        }
-    }
 }
