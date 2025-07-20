@@ -1,0 +1,46 @@
+.container {
+  padding: 200px 0px 40px;
+  margin: 0 auto;
+  position: relative;
+
+  > .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    > h1 {
+      font-size: 24px;
+      font-weight: var(--fw-bold);
+      color: var(--white);
+    }
+
+    > p {
+      font-size: 16px;
+      cursor: pointer;
+      > span {
+        margin-right: 8px;
+        color: var(--gray);
+      }
+    }
+  }
+
+  .moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
+  }
+}
+.button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > .showmore-btn {
+    width: 159px;
+    height: 42px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}

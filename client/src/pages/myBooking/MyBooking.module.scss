@@ -1,0 +1,70 @@
+.bookingsContainer {
+  width: 800px;
+  margin: 30px 150px;
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.bookingCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #DA23431A;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 20px;
+
+}
+
+.movieImage {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bookingDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.movieTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movieDuration,
+.movieDate {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.ticketInfo {
+  text-align: right;
+  min-width: 150px;
+  font-size: 13px;
+
+  .price {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+
+  span {
+    color: #fff;
+    font-weight: bold;
+  }
+}

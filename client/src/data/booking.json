@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Alita Battle Angel 2024",
+    "duration": "2 hours 15 minutes",
+    "date": "13th May 2025",
+    "time": "5:00 PM",
+    "price": 700,
+    "totalTickets": 2,
+    "seatNumbers": ["B12", "B13"],
+    "image":
+      "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/09/Avengers-Infinity-War-poster.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+  },
+  {
+    "id": 2,
+    "title": "Alita Battle Angel 2024",
+    "duration": "2 hours 15 minutes",
+    "date": "13th May 2025",
+    "time": "5:00 PM",
+    "price": 700,
+    "totalTickets": 2,
+    "seatNumbers": ["B12", "B13"],
+    "image": 
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2RRvNC-1ldI-54qd7YN47NWTYmygYYunrA&s"
+  }
+]

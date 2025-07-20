@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import Pages from "./pages/Index.jsx";
+import Pages from "./pages/index.jsx";
 import Layout from "./layout/Layout.jsx";
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Pages.Home />} />
         <Route path="/:id" element={<Pages.MovieDetails />} />
+        <Route path="/mybooking" element={<Pages.MyBooking />} />
       </Route>
     </Routes>
   );
