@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import style from "./Booking.module.scss";
 import Button from "../../../../components/atoms/buttons/Button";
-import dates from "../../../../data/dayDate.json"
+import dates from "../../../../data/dayDate.json";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 const Booking = () => {
   const navigate = useNavigate();
- 
-  const [selected, setSelected] = useState(16);
+
+  const [selected, setSelected] = useState(null);
 
   return (
     <main className={style.container}>
@@ -36,7 +37,13 @@ const Booking = () => {
         <Button
           className={style["book-now-btn"]}
           text="Book Now"
-          clickHandler={() => navigate("/seat-selection")}
+          clickHandler={() => {
+            if (!selected) {
+              toast.info("Please select a date");
+            } else {
+              navigate("/seat-selection");
+            }
+          }}
         />
       </div>
     </main>
