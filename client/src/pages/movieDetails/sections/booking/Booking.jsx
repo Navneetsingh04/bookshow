@@ -3,8 +3,10 @@ import style from "./Booking.module.scss";
 import Button from "../../../../components/atoms/buttons/Button";
 import dates from "../../../../data/dayDate.json"
 import { Icon } from "@iconify/react";
-
+import { useNavigate } from "react-router";
 const Booking = () => {
+  const navigate = useNavigate();
+ 
   const [selected, setSelected] = useState(16);
 
   return (
@@ -34,7 +36,7 @@ const Booking = () => {
         <Button
           className={style["book-now-btn"]}
           text="Book Now"
-          clickHandler={() => console.log("Booking confirmed")}
+          clickHandler={() => navigate("/seat-selection")}
         />
       </div>
     </main>
