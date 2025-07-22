@@ -3,12 +3,15 @@ import logo from "../../../assets/logo.png";
 import { Icon } from "@iconify/react";
 import style from "./Navbar.module.scss";
 import Button from "../../atoms/buttons/Button";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink } from "react-router";
+import { useDispatch } from  "react-redux";
+import { toggleLoginPopup } from "../../../store/slices/popUpSlice";
+
 const Navbar = () => {
+  const dispatch = useDispatch();
   const handleLogin = () => {
-    console.log("Login button clicked");
+    dispatch(toggleLoginPopup());
   };
-  const navigate = useNavigate();
 
   return (
     <article className={style.navbar}>
