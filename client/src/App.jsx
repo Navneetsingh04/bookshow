@@ -1,15 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import Pages from "./pages/index.jsx";
+import Pages from "./pages/Index.jsx";
 import Layout from "./layout/Layout.jsx";
 import { ToastContainer } from "react-toastify";
-import Register from "./pages/Auth/Register.jsx";
-import Login from "./pages/Auth/Login.jsx";
 import LoginPopup from "./popups/Login.jsx";
 import RegisterPopup from "./popups/Register.jsx";
 import Modal from "./components/molecules/Modal/Modal.jsx";
-import { toggleLoginPopup, toggleRegisterPopup, closeLoginPopup, closeRegisterPopup } from "./store/slices/popUpSlice.js";
+import {closeLoginPopup, closeRegisterPopup } from "./store/slices/popUpSlice.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,8 +28,6 @@ function App() {
       </Modal>
 
       <Routes>
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
         <Route />
         <Route path="/" element={<Layout />}>
           <Route index element={<Pages.Home />} />

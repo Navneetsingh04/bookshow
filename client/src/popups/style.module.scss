@@ -8,7 +8,7 @@
   > .formContainer {
     background: var(--white);
     padding: 32px 40px;
-    border-radius: 16px;
+    border-radius: 160px;
     box-shadow: none;
     width: 400px;
     margin: 0;
@@ -40,9 +40,11 @@
           padding: 10px 16px;
           border: 1px solid var(--gray);
           border-radius: var(--border-radius);
-          font-size: var(--fs-md);
+          font-size: var(--fs-medium);
+          font-weight: var(--fw-medium);
           outline: none;
-          background: #fafbfc;
+          background: var(--white);
+          color: var(--dark);
 
           &:focus {
             border-color: var(--red);
@@ -95,7 +97,7 @@
         margin-top: 24px;
         text-align: center;
         font-size: var(--fs-md);
-        color: var(--gray);
+        color: var(--dark);
 
         a, .link {
           color: var(--red);

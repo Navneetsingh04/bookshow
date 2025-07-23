@@ -28,7 +28,7 @@ const Login = () => {
     <div className={style.container}>
       <section className={style.formContainer}>
         <form onSubmit={handleSubmit}>
-          <h1>Sign In</h1>
+          <h1>Login In</h1>
 
           <div className={style.inputContainer}>
             <label htmlFor="email">Email</label>

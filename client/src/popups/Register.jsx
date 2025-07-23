@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import Button from "../components/atoms/buttons/Button";
 import { useDispatch } from "react-redux";
 import { toggleLoginPopup, closeRegisterPopup } from "../store/slices/popUpSlice";
-
+import {toast} from "react-toastify"
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,7 +18,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Register Data: ", formData);
-    // Close popup after successful registration
+    toast.success("User Successfully Register!");
     dispatch(closeRegisterPopup());
   };
 
