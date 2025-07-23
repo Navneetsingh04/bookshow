@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./Details.module.scss";
-import Star from "../../../../assets/Star.png";
-import Button from "../../../../components/atoms/buttons/Button";
+import Star from "../../../../../assets/Star.png";
+import Button from "../../../../../components/atoms/buttons/Button";
 import { Icon } from "@iconify/react";
-import movies from "../../../../data/movies.json";
+import movies from "../../../../../data/movies.json";
 import { useParams } from "react-router";
 import Cast from "./Cast.jsx";
 const Details = () => {

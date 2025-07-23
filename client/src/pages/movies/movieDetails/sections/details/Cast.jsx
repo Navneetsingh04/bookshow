@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Cast.module.scss";
-import castData from "../../../../data/cast.json";
+import castData from "../../../../../data/cast.json";
 const Cast = () => {
   return (
     <div className={style.cast}>

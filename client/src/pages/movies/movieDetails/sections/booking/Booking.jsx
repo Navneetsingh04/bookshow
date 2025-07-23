@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./Booking.module.scss";
-import Button from "../../../../components/atoms/buttons/Button";
-import dates from "../../../../data/dayDate.json";
+import Button from "../../../../../components/atoms/buttons/Button";
+import dates from "../../../../../data/dayDate.json";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";

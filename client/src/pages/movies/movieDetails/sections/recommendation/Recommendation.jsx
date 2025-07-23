@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './Recommendation.module.scss'
-import Button from '../../../../components/atoms/buttons/Button'
-import Card from '../../../../components/molecules/card/Card';
+import Button from '../../../../../components/atoms/buttons/Button'
+import Card from '../../../../../components/molecules/card/Card';
 import { Icon } from '@iconify/react';
-import moviesData from '../../../../data/movies.json';
+import moviesData from '../../../../../data/movies.json';
 import { useNavigate } from 'react-router';
 const Recommendation = () => {
   const navigate = useNavigate();
