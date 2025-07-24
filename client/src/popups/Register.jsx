@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import style from "./style.module.scss";
 import Button from "../components/atoms/buttons/Button";
 import { useDispatch } from "react-redux";
-import { toggleLoginPopup, closeRegisterPopup } from "../store/slices/popUpSlice";
-import {toast} from "react-toastify"
+import {
+  toggleLoginPopup,
+  closeRegisterPopup,
+} from "../store/slices/popUpSlice";
+import { toast } from "react-toastify";
+import { registerUser } from "../api/user";
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,11 +19,38 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Register Data: ", formData);
-    toast.success("User Successfully Register!");
-    dispatch(closeRegisterPopup());
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      if (
+        formData.name === "" ||
+        formData.email === "" ||
+        formData.password === "" ||
+        formData.confirmPassword == ""
+      ) {
+        toast.error("Please fill in all fields");
+        return;
+      }
+      if (formData.password != formData.confirmPassword) {
+        toast.info("password and confirmPassword should same");
+        return;
+      }
+      console.log("Registering user with:", formData);
+      const result = await registerUser(formData);
+      console.log("Register Data: ", result);
+      if (result.data) {
+        toast.success("Registartion successful");
+        dispatch(closeRegisterPopup());
+        dispatch(toggleLoginPopup());
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Register error:", error);
+      const err =
+        error.response?.data?.message || "Registration failed. Please try again.";
+      toast.error(err);
+    }
   };
 
   const switchToLogin = () => {
@@ -94,14 +125,17 @@ const Register = () => {
             <label htmlFor="togglePassword">Show Passwords</label>
           </div>
 
-          <Button 
-            text="Sign Up" 
-            clickHandler={handleSubmit} 
+          <Button
+            text="Sign Up"
+            clickHandler={handleSubmit}
             className={style["button"]}
           />
 
           <p className={style.text}>
-            Already have an account? <span onClick={switchToLogin} className={style.link}>Login</span>
+            Already have an account?{" "}
+            <span onClick={switchToLogin} className={style.link}>
+              Login
+            </span>
           </p>
         </form>
       </section>

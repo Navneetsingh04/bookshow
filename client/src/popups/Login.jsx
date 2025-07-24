@@ -3,7 +3,8 @@ import style from "./style.module.scss";
 import Button from "../components/atoms/buttons/Button";
 import { useDispatch } from "react-redux";
 import { closeLoginPopup, toggleRegisterPopup } from "../store/slices/popUpSlice";
-
+import { toast } from "react-toastify";
+import {loginUser} from "../api/user"
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -12,11 +13,31 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login Data: ", formData);
-    // Close popup after successful login
-    dispatch(closeLoginPopup());
+  const handleSubmit = async (e) => {
+    
+    
+    try {
+      e.preventDefault();
+      console.log("Login data: ",formData);
+      if(formData.email === "" || formData.password === "") {
+        toast.error("Please fill in all fields");
+        return;
+      }
+      const result = await loginUser(formData);
+      console.log("Login Data: ", result);
+      if (result.data) {
+        toast.success("Logged in Successfully");
+        // TODO: Store user data in Redux store or localStorage
+        // dispatch(setUser(result.data.user));
+        dispatch(closeLoginPopup());
+      } else {
+        toast.error("Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      const errorMessage = error.response?.data?.message || "Login failed. Please try again.";
+      toast.error(errorMessage);
+    }
   };
 
   const switchToRegister = () => {
@@ -28,7 +49,7 @@ const Login = () => {
     <div className={style.container}>
       <section className={style.formContainer}>
         <form onSubmit={handleSubmit}>
-          <h1>Login In</h1>
+          <h1>LogIn</h1>
 
           <div className={style.inputContainer}>
             <label htmlFor="email">Email</label>
