@@ -1,3 +1,39 @@
+// Search box styles
+.searchBoxWrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+  margin-right: 1rem;
+  min-width: 220px;
+  position: relative;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.4rem 0.7rem 0.4rem 0.2rem;
+  background: transparent;
+  width: 160px;
+  color: #222;
+}
+
+.closeBtn {
+  font-size: 1.2rem;
+  color: #888;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #e74c3c;
+}
+
 .navbar {
   display: flex;
   height: 80px;
@@ -42,12 +78,73 @@
     gap: 30px;
     align-items: center;
 
+    .search {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      // Search input styles
+      .searchbar {
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 25px;
+        width: 200px;
+        color: #333;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        &::placeholder {
+          color: #666;
+        }
+
+        &:focus {
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          transform: scale(1.02);
+        }
+      }
+
+      .hideSearchbar {
+        width: 0;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      // Search icon styles
+      > svg {
+        width: 24px;
+        height: 24px;
+        color: var(--white);
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--red);
+          transform: scale(1.1);
+        }
+
+        &.active {
+          color: var(--red);
+          transform: scale(1.1);
+        }
+      }
+    }
+
     > svg {
       width: 30px;
       height: 30px;
+      color: var(--white);
     }
   }
 }
+
 .active {
   color: var(--red) !important;
 }

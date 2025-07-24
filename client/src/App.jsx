@@ -1,29 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import Pages from "./pages/Index.jsx";
 import Layout from "./layout/Layout.jsx";
-import { ToastContainer } from "react-toastify";
 import LoginPopup from "./popups/Login.jsx";
 import RegisterPopup from "./popups/Register.jsx";
 import Modal from "./components/molecules/Modal/Modal.jsx";
-import {closeLoginPopup, closeRegisterPopup } from "./store/slices/popUpSlice.js";
+import {
+  closeLoginPopup,
+  closeRegisterPopup,
+} from "./store/slices/popUpSlice.js";
+import fetchUser from "./store/actions/user.actions.js";
+import AuthRoute from "./routes/AuthRoute.js";
 
 function App() {
   const dispatch = useDispatch();
   const { loginPopup, registerPopup } = useSelector((state) => state.popup);
 
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, []);
+
   return (
     <>
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} theme="dark" />
-      
       {/* Login Modal */}
       <Modal isOpen={loginPopup} onClose={() => dispatch(closeLoginPopup())}>
         <LoginPopup />
       </Modal>
 
       {/* Register Modal */}
-      <Modal isOpen={registerPopup} onClose={() => dispatch(closeRegisterPopup())}>
+      <Modal
+        isOpen={registerPopup}
+        onClose={() => dispatch(closeRegisterPopup())}
+      >
         <RegisterPopup />
       </Modal>
 
@@ -33,8 +42,22 @@ function App() {
           <Route index element={<Pages.Home />} />
           <Route path="movies" element={<Pages.MoviesPage />} />
           <Route path="movies/:id" element={<Pages.MovieDetails />} />
-          <Route path="mybooking" element={<Pages.MyBooking />} />
+          <Route path="/search" element={<Pages.Search/>} />
           <Route path="seat-selection" element={<Pages.SeatSelection />} />
+          <Route path="/wishlist" element={<AuthRoute></AuthRoute>} />
+
+          <Route
+            path="my-booking"
+            element={
+              <AuthRoute>
+                <Pages.MyBooking />
+              </AuthRoute>
+            }
+          />
+
+          {/* Login and Register Popup Routes */}
+          <Route path="login" element={<LoginPopup />} />
+          <Route path="register" element={<RegisterPopup />} />
         </Route>
       </Routes>
     </>

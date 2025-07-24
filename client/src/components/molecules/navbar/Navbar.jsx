@@ -1,24 +1,64 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import logo from "../../../assets/logo.png";
 import { Icon } from "@iconify/react";
 import style from "./Navbar.module.scss";
 import Button from "../../atoms/buttons/Button";
-import { NavLink } from "react-router";
-import { useDispatch } from  "react-redux";
+import { NavLink, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleLoginPopup } from "../../../store/slices/popUpSlice";
+import { logoutUser } from "../../../api/user";
+import fetchUser from "../../../store/actions/user.actions";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef(null);
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const handleLogin = () => {
-    dispatch(toggleLoginPopup());
+
+  const handleSearch = () => {
+    if (!searchOpen) {
+      setSearchOpen((prev) => !prev);
+      return;
+    } else if (searchRef.current.value.length) {
+      setSearchOpen(false);
+      navigate(`/search?query=${searchRef.current.value}`);
+      return;
+    }
+    setSearchOpen(false);
   };
+
+  const handleAuthButton = async () => {
+    try {
+      if (user.email) {
+        const res = await logoutUser();
+        console.log({ res });
+        if (res.status === 200) {
+          toast.success("Logout Successfully");
+          dispatch(fetchUser());
+        } else {
+          toast.error("Something went wrong!");
+        }
+      } else {
+        dispatch(toggleLoginPopup());
+      }
+    } catch (error) {
+      console.log("Logout Error: ", { error });
+      toast.error("Something went wrong!");
+    }
+  };
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
 
   return (
     <article className={style.navbar}>
       {/* left side */}
       <img src={logo} alt="logo" />
 
-      {/* Middle  */}
+      {/* Middle */}
       <nav className={style.nav}>
         <NavLink
           to="/"
@@ -38,8 +78,27 @@ const Navbar = () => {
 
       {/* right side */}
       <div className={style.right}>
-        <Icon icon={"ic:outline-search"} />
-        <Button text="Login" clickHandler={handleLogin} />
+        <div className={style.search}>
+          <input
+            ref={searchRef}
+            type="text"
+            placeholder="Search Movies"
+            className={searchOpen ? style.searchbar : style.hideSearchbar}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
+          />
+          <Icon
+            icon="ic:outline-search"
+            onClick={handleSearch}
+            className={searchOpen ? style.active : ""}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+        <Button
+          text={user.email ? "Log out" : "Log In"}
+          clickHandler={handleAuthButton}
+        />
       </div>
     </article>
   );
