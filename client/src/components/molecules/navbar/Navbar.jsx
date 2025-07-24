@@ -18,22 +18,27 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
+    const value = searchRef.current?.value.trim();
     if (!searchOpen) {
       setSearchOpen((prev) => !prev);
       return;
-    } else if (searchRef.current.value.length) {
+    }
+    if (value) {
       setSearchOpen(false);
-      navigate(`/search?query=${searchRef.current.value}`);
+      navigate(`/search?query=${value}`);
+      searchRef.current.value = "";
       return;
     }
-    setSearchOpen(false);
+    else{
+      setSearchOpen(false);
+    }
   };
 
   const handleAuthButton = async () => {
     try {
-      if (user.email) {
+      if (user?.email) {
         const res = await logoutUser();
-        console.log({ res });
+        // console.log({ res });
         if (res.status === 200) {
           toast.success("Logout Successfully");
           dispatch(fetchUser());
@@ -44,7 +49,7 @@ const Navbar = () => {
         dispatch(toggleLoginPopup());
       }
     } catch (error) {
-      console.log("Logout Error: ", { error });
+      console.log("Logout Error: ", error );
       toast.error("Something went wrong!");
     }
   };
@@ -96,7 +101,7 @@ const Navbar = () => {
           />
         </div>
         <Button
-          text={user.email ? "Log out" : "Log In"}
+          text={user?.email ? "Log out" : "Log In"}
           clickHandler={handleAuthButton}
         />
       </div>

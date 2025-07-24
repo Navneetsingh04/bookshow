@@ -12,9 +12,11 @@ import {
 } from "./store/slices/popUpSlice.js";
 import fetchUser from "./store/actions/user.actions.js";
 import AuthRoute from "./routes/AuthRoute.js";
+import NonAuthRoute from "./routes/NonAuthRoute.js";
 
 function App() {
   const dispatch = useDispatch();
+
   const { loginPopup, registerPopup } = useSelector((state) => state.popup);
 
   useEffect(() => {
@@ -37,17 +39,16 @@ function App() {
       </Modal>
 
       <Routes>
-        <Route />
         <Route path="/" element={<Layout />}>
           <Route index element={<Pages.Home />} />
           <Route path="movies" element={<Pages.MoviesPage />} />
           <Route path="movies/:id" element={<Pages.MovieDetails />} />
-          <Route path="/search" element={<Pages.Search/>} />
+          <Route path="/search" element={<Pages.Search />} />
           <Route path="seat-selection" element={<Pages.SeatSelection />} />
           <Route path="/wishlist" element={<AuthRoute></AuthRoute>} />
 
           <Route
-            path="my-booking"
+            path="/my-booking"
             element={
               <AuthRoute>
                 <Pages.MyBooking />
@@ -55,9 +56,6 @@ function App() {
             }
           />
 
-          {/* Login and Register Popup Routes */}
-          <Route path="login" element={<LoginPopup />} />
-          <Route path="register" element={<RegisterPopup />} />
         </Route>
       </Routes>
     </>

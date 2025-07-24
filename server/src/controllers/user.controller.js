@@ -24,14 +24,22 @@ async function createUser(req, res) {
 
     const user = await User.create(userBody);
 
-    return res.status(201).json({
-      success: true,
-      result: "User registered successfully",
+    if (user) {
+      res.status(201).json({
+        success: true,
+        result: "User registered successfully!",
+      });
+      return;
+    }
+    res.status(500).json({
+      success: false,
+      result: "Something went wrong!",
     });
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      result: error.message || "Something went wrong while creating user",
+    console.log({ error });
+    let errorMsg = error.message?.split(":")[2]?.split(",")[0];
+    res.status(400).json({
+      error: errorMsg,
     });
   }
 }
@@ -51,7 +59,8 @@ async function loginUser(req, res) {
       });
     }
 
-    const isMatched = await bcrypt.compare(password, existingUser.password);
+    const isMatched = await bcrypt.compare(password, existingUser.password);  // true
+
     if (!isMatched) {
       return res.status(401).json({
         success: false,
@@ -63,15 +72,14 @@ async function loginUser(req, res) {
       userId: existingUser._id.toString(),
     };
 
-    const Auth_Token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRATION || "1d",
-    });
+    const Auth_Token = jwt.sign(payload, process.env.JWT_SECRET);
 
     res.cookie(process.env.AUTH_COOKIE, Auth_Token, {
       httpOnly: true,
       secure: false,
       sameSite: "strict",
       maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
+       origin: "http://localhost:5173"
     });
 
     return res.status(200).json({
@@ -110,7 +118,7 @@ async function getLoggedUser(req, res) {
   } catch (error) {
     return res.status(400).json({
       success: false,
-      error: error.message || "Something went wrong",
+      error: "Something went wrong",
     });
   }
 }
@@ -132,11 +140,13 @@ async function logoutUser(req, res) {
     } else {
       return res
         .status(400)
-        .json({ success: false, result: "No user is logged in" });
+        .json({ success: false, result: "No user is logged-in" });
     }
   } catch (error) {
-    return res.status(500).json({ success: false, result: "Something went wrong!" });
+    return res
+      .status(500)
+      .json({ success: false, result: "Something went wrong!" });
   }
 }
 
-module.exports = { createUser, loginUser, getLoggedUser,logoutUser };
+module.exports = { createUser, loginUser, getLoggedUser, logoutUser };
