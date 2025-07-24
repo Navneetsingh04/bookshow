@@ -1,3 +1,3 @@
 const logMiddleware = require("./log.middleware");
-
-module.exports = { logMiddleware };
+const authMiddleware = require("./auth.middleware");
+module.exports = { logMiddleware,authMiddleware };
