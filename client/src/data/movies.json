@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Avengers: Infinity War",
-    "genre": "Action | Sci-Fi",
+    "genres": "Action | Sci-Fi",
     "year": "2018",
     "duration": "2h 29m",
     "rating": 4.8,
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "title": "Inception",
-    "genre": "Sci-Fi | Thriller",
+    "genres": "Sci-Fi | Thriller",
     "year": "2010",
     "duration": "2h 28m",
     "rating": 4.9,
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "title": "The Dark Knight",
-    "genre": "Action | Crime",
+    "genres": "Action | Crime",
     "year": "2008",
     "duration": "2h 32m",
     "rating": 5.0,
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "title": "Interstellar",
-    "genre": "Adventure | Drama | Sci-Fi",
+    "genres": "Adventure | Drama | Sci-Fi",
     "year": "2014",
     "duration": "2h 49m",
     "rating": 4.7,
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "title": "Alita: Battle Angel",
-    "genre": "Action | Adventure",
+    "genres": "Action | Adventure",
     "year": "2019",
     "duration": "2h 2m",
     "rating": 4.6,
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "title": "Spider-Man: No Way Home",
-    "genre": "Action | Adventure | Fantasy",
+    "genres": "Action | Adventure | Fantasy",
     "year": "2021",
     "duration": "2h 28m",
     "rating": 4.9,
@@ -68,7 +68,7 @@
   {
     "id": 7,
     "title": "Black Panther",
-    "genre": "Action | Adventure | Sci-Fi",
+    "genres": "Action | Adventure | Sci-Fi",
     "year": "2018",
     "duration": "2h 14m",
     "rating": 4.7,
@@ -79,7 +79,7 @@
   {
     "id": 8,
     "title": "Doctor Strange in the Multiverse of Madness",
-    "genre": "Action | Adventure | Fantasy",
+    "genres": "Action | Adventure | Fantasy",
     "year": "2022",
     "duration": "2h 6m",
     "rating": 4.5,

@@ -5,14 +5,14 @@ import Star from "../../../assets/Star.png";
 
 const Card = (props) => {
   
-  const {title, genre, year, duration, rating,image,clickHandler} = props;
+  const {title, genres, year, duration, rating,image,clickHandler} = props;
 
   return (
     <main className={style.container}>
       <article>
         <img src={image} alt={title}  />
         <h2>{title}</h2>
-        <p>{year} - {genre} - {duration}</p>
+        <p>{year} - {genres} - {duration}</p>
         <div className={style.cardActions}>
           <Button
             className={style.btn}

@@ -28,9 +28,9 @@ const Details = () => {
             {movie.rating} IMDb Rating
           </span>
           <p className={style.description}>{movie.description}</p>
-          <p className={style.genre}>
+          <p className={style.genres}>
             <span>{movie.duration}</span>
-            <span>• {movie.genre}</span>
+            <span>• {movie.genres}</span>
             <span>• 1 May {movie.year}</span>
           </p>
           <div className={style.actions}>

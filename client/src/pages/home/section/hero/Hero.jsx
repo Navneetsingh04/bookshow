@@ -13,7 +13,7 @@ const Hero = () => {
           Avengers <br />
           Infinity War
         </h1>
-        <p className={style.genre}>
+        <p className={style.genres}>
           <span>Action | Adventure | Sci-Fi</span>
           <span>
             <Icon icon={"mdi:calendar"} />
