@@ -20,14 +20,8 @@ function App() {
   const { loginPopup, registerPopup } = useSelector((state) => state.popup);
 
   useEffect(() => {
-    const hasAuthCookie = document.cookie
-    .split(';')
-    .some(cookie => cookie.trim().startsWith('auth-token='));
-  
-  if (hasAuthCookie) {
     dispatch(fetchUser());
-  }
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
