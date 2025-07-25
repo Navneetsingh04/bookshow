@@ -44,9 +44,15 @@ function App() {
           <Route path="movies" element={<Pages.MoviesPage />} />
           <Route path="movies/:id" element={<Pages.MovieDetails />} />
           <Route path="/search" element={<Pages.Search />} />
-          <Route path="seat-selection" element={<Pages.SeatSelection />} />
-          <Route path="/wishlist" element={<AuthRoute></AuthRoute>} />
-
+          <Route path="/movies/:id/:date" element={<Pages.SeatSelection />} />
+          <Route
+            path="/wishlist"
+            element={
+              <AuthRoute>
+                <Pages.WishList />
+              </AuthRoute>
+            }
+          />
           <Route
             path="/my-booking"
             element={
@@ -55,7 +61,6 @@ function App() {
               </AuthRoute>
             }
           />
-
         </Route>
       </Routes>
     </>

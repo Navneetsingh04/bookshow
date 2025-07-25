@@ -30,7 +30,7 @@ const seatLayout = [
   ],
 ]
 
-const Seat = () => {
+const Seat = ({selectedTime, onInvalidSelection }) => {
   const [selectedSeat, setSelectedSeat] = useState(null);
   const [alreadyFilled, setAlreadyFilled] = useState([]);
 
@@ -39,6 +39,10 @@ const Seat = () => {
   }, []);
 
   const handleSeat = (s) => {
+    if(!selectedTime) {
+      onInvalidSelection();
+      return;
+    }
     if (alreadyFilled.includes(s)) return;
     setSelectedSeat(s);
     console.log(`${s} seat is Selected`);

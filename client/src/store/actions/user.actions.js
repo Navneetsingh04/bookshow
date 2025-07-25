@@ -19,7 +19,6 @@ const fetchUser = () => async (dispatch) => {
     }
   } catch (error) {
     console.log({ error });
-    // dispatch(userFailure(error.data?.response?.result || error.message));
       if (error?.response?.status === 401) {
       dispatch(userLogout());
     } else {

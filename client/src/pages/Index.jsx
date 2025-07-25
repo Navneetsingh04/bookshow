@@ -4,6 +4,7 @@ import MyBooking from './myBooking/MyBooking.jsx';
 import MoviesPage from './movies/MoviesPage.jsx';
 import SeatSelection from './booking/SeatSelection.jsx';
 import Search from './search/Search.jsx';
+import WishList from './wishlist/WishList.jsx';
 const Pages = {
     Home,
     MovieDetails,
@@ -11,6 +12,7 @@ const Pages = {
     MoviesPage,
     SeatSelection,
     Search,
+    WishList,
 }
 
 export default Pages;
