@@ -11,8 +11,8 @@ import {
   closeRegisterPopup,
 } from "./store/slices/popUpSlice.js";
 import fetchUser from "./store/actions/user.actions.js";
-import AuthRoute from "./routes/AuthRoute.js";
-import NonAuthRoute from "./routes/NonAuthRoute.js";
+import AuthRoute from "./routes/AuthRoute.jsx";
+import NonAuthRoute from "./routes/NonAuthRoute.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,8 +20,14 @@ function App() {
   const { loginPopup, registerPopup } = useSelector((state) => state.popup);
 
   useEffect(() => {
+    const hasAuthCookie = document.cookie
+    .split(';')
+    .some(cookie => cookie.trim().startsWith('auth-token='));
+  
+  if (hasAuthCookie) {
     dispatch(fetchUser());
-  }, []);
+  }
+  }, [dispatch]);
 
   return (
     <>

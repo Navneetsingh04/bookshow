@@ -8,6 +8,7 @@ import {
 } from "../store/slices/popUpSlice";
 import { toast } from "react-toastify";
 import { registerUser } from "../api/user";
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,29 +18,40 @@ const Register = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isLoading) return;
+
     try {
-      e.preventDefault();
       if (
         formData.name === "" ||
         formData.email === "" ||
         formData.password === "" ||
-        formData.confirmPassword == ""
+        formData.confirmPassword === ""
       ) {
         toast.error("Please fill in all fields");
         return;
       }
-      if (formData.password != formData.confirmPassword) {
-        toast.info("password and confirmPassword should same");
+
+      if (formData.password !== formData.confirmPassword) {
+        toast.error("Password and confirm password should match");
         return;
       }
-      console.log("Registering user with:", formData);
+
+      if (formData.password.length < 8) {
+        toast.error("Password should be at least 8 characters long");
+        return;
+      }
+
+      setIsLoading(true);
       const result = await registerUser(formData);
-      console.log("Register Data: ", result);
-      if (result.data) {
-        toast.success("Registartion successful");
+
+      if (result?.data && result.success !== false) {
+        toast.success("Registration successful");
         dispatch(closeRegisterPopup());
         dispatch(toggleLoginPopup());
       } else {
@@ -47,9 +59,12 @@ const Register = () => {
       }
     } catch (error) {
       console.error("Register error:", error);
-      const err =
-        error.response?.data?.message || "Registration failed. Please try again.";
-      toast.error(err);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Registration failed. Please try again.";
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -67,6 +82,7 @@ const Register = () => {
           <div className={style.inputContainer}>
             <label htmlFor="name">Full Name</label>
             <input
+              id="name"
               type="text"
               placeholder="Enter Full Name"
               value={formData.name}
@@ -80,6 +96,7 @@ const Register = () => {
           <div className={style.inputContainer}>
             <label htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               placeholder="Enter Email Address"
               value={formData.email}
@@ -93,6 +110,7 @@ const Register = () => {
           <div className={style.inputContainer}>
             <label htmlFor="password">Password</label>
             <input
+              id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               value={formData.password}
@@ -106,6 +124,7 @@ const Register = () => {
           <div className={style.inputContainer}>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
+              id="confirmPassword"
               type={showPassword ? "text" : "password"}
               placeholder="Confirm your password"
               value={formData.confirmPassword}
@@ -126,9 +145,10 @@ const Register = () => {
           </div>
 
           <Button
-            text="Sign Up"
-            clickHandler={handleSubmit}
+            text={isLoading ? "Signing Up..." : "Sign Up"}
+            type="submit"
             className={style["button"]}
+            disabled={isLoading}
           />
 
           <p className={style.text}>

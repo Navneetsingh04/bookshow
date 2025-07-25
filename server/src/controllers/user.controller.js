@@ -59,7 +59,7 @@ async function loginUser(req, res) {
       });
     }
 
-    const isMatched = await bcrypt.compare(password, existingUser.password);  // true
+    const isMatched = await bcrypt.compare(password, existingUser.password); // true
 
     if (!isMatched) {
       return res.status(401).json({
@@ -79,7 +79,7 @@ async function loginUser(req, res) {
       secure: false,
       sameSite: "strict",
       maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
-       origin: "http://localhost:5173"
+      origin: "http://localhost:5173",
     });
 
     return res.status(200).json({
@@ -98,12 +98,21 @@ async function getLoggedUser(req, res) {
   const userId = req.token;
 
   try {
-    if (!userId) throw Error("Not a logged-in User!");
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        error: "Not authenticated - please log in",
+      });
+    }
 
-    const objectId = new mongoose.Types.ObjectId(userId);
-    const user = await User.findOne({ _id: objectId });
+    const user = await User.findById(userId);
 
-    if (!user) throw Error("User not found");
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: "User not found",
+      });
+    }
 
     return res.status(200).json({
       success: true,
@@ -116,9 +125,10 @@ async function getLoggedUser(req, res) {
       },
     });
   } catch (error) {
-    return res.status(400).json({
+    console.error("getLoggedUser error:", error);
+    return res.status(500).json({
       success: false,
-      error: "Something went wrong",
+      error: "Internal server error",
     });
   }
 }

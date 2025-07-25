@@ -9,6 +9,7 @@ import { toggleLoginPopup } from "../../../store/slices/popUpSlice";
 import { logoutUser } from "../../../api/user";
 import fetchUser from "../../../store/actions/user.actions";
 import { toast } from "react-toastify";
+import { userLogout } from "../../../store/slices/userSlice";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -28,8 +29,7 @@ const Navbar = () => {
       navigate(`/search?query=${value}`);
       searchRef.current.value = "";
       return;
-    }
-    else{
+    } else {
       setSearchOpen(false);
     }
   };
@@ -41,7 +41,7 @@ const Navbar = () => {
         // console.log({ res });
         if (res.status === 200) {
           toast.success("Logout Successfully");
-          dispatch(fetchUser());
+          dispatch(userLogout());
         } else {
           toast.error("Something went wrong!");
         }
@@ -49,14 +49,12 @@ const Navbar = () => {
         dispatch(toggleLoginPopup());
       }
     } catch (error) {
-      console.log("Logout Error: ", error );
+      console.log("Logout Error: ", error);
+      dispatch(userLogout());
       toast.error("Something went wrong!");
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
 
   return (
     <article className={style.navbar}>

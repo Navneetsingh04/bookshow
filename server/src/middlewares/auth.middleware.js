@@ -1,16 +1,38 @@
 const jwt = require("jsonwebtoken");
 
 function authMiddleware(req, res, next) {
-  const cookies = req.headers.cookie;
-  const cookieArray = cookies?.split(";");
-  if (cookieArray.length) {
-    const authToken = cookieArray
-      .find((c, i) => c.includes(process.env.AUTH_COOKIE))
-      ?.split("=")[1];
+  try {
+    const cookies = req.headers.cookie;
+
+    if (!cookies) {
+      req.token = null;
+      return next();
+    }
+
+    const cookieArray = cookies.split(";");
+    const authCookie = cookieArray.find((cookie) =>
+      cookie.trim().includes(process.env.AUTH_COOKIE)
+    );
+
+    if (!authCookie) {
+      req.token = null;
+      return next();
+    }
+
+    const authToken = authCookie.split("=")[1]?.trim();
+
+    if (!authToken) {
+      req.token = null;
+      return next();
+    }
 
     const payload = jwt.verify(authToken, process.env.JWT_SECRET);
     req.token = payload.userId;
-  } else req.cookie = null;
+  } catch (error) {
+    console.error("Auth middleware error:", error.message);
+    req.token = null;
+  }
+
   next();
 }
 
