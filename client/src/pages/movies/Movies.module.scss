@@ -1,0 +1,15 @@
+.moviesPage {
+  padding: 60px 100px;
+  
+  h1 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 1rem 0;
+}

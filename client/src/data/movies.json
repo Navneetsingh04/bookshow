@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Avengers: Infinity War",
+    "genres": "Action | Sci-Fi",
+    "year": "2018",
+    "duration": "2h 29m",
+    "rating": 4.8,
+    "language": "English",
+    "description": "The Avengers and their allies must be willing to sacrifice everything in an attempt to defeat the powerful Thanos before his blitz of devastation puts an end to the universe.",
+    "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/09/Avengers-Infinity-War-poster.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+  },
+  {
+    "id": 2,
+    "title": "Inception",
+    "genres": "Sci-Fi | Thriller",
+    "year": "2010",
+    "duration": "2h 28m",
+    "rating": 4.9,
+    "language": "English",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2RRvNC-1ldI-54qd7YN47NWTYmygYYunrA&s"
+  },
+  {
+    "id": 3,
+    "title": "The Dark Knight",
+    "genres": "Action | Crime",
+    "year": "2008",
+    "duration": "2h 32m",
+    "rating": 5.0,
+    "language": "English",
+    "description": "When the menace known as the Joker wreaks havoc and chaos on Gotham City, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/09/Avengers-Infinity-War-poster.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+  },
+  {
+    "id": 4,
+    "title": "Interstellar",
+    "genres": "Adventure | Drama | Sci-Fi",
+    "year": "2014",
+    "duration": "2h 49m",
+    "rating": 4.7,
+    "language": "English",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "image": "https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Alita: Battle Angel",
+    "genres": "Action | Adventure",
+    "year": "2019",
+    "duration": "2h 2m",
+    "rating": 4.6,
+    "language": "English",
+    "description": "A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
+    "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/09/Avengers-Infinity-War-poster.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+  },
+  {
+    "id": 6,
+    "title": "Spider-Man: No Way Home",
+    "genres": "Action | Adventure | Fantasy",
+    "year": "2021",
+    "duration": "2h 28m",
+    "rating": 4.9,
+    "language": "English",
+    "description": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds appear.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2RRvNC-1ldI-54qd7YN47NWTYmygYYunrA&s"
+  },
+  {
+    "id": 7,
+    "title": "Black Panther",
+    "genres": "Action | Adventure | Sci-Fi",
+    "year": "2018",
+    "duration": "2h 14m",
+    "rating": 4.7,
+    "language": "English",
+    "description": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2RRvNC-1ldI-54qd7YN47NWTYmygYYunrA&s"
+  },
+  {
+    "id": 8,
+    "title": "Doctor Strange in the Multiverse of Madness",
+    "genres": "Action | Adventure | Fantasy",
+    "year": "2022",
+    "duration": "2h 6m",
+    "rating": 4.5,
+    "language": "English",
+    "description": "Doctor Strange teams up with a mysterious teenage girl from his dreams who can travel across multiverses, to battle multiple threats including other-universe versions of himself.",
+    "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/09/Avengers-Infinity-War-poster.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+  }
+]

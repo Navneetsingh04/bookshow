@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1000px;
+  margin-top: 80px;
+  margin-left: 60px;
+
+  > h1 {
+    font-size: var(--fs-6xl);
+    color: var(--gray);
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  > .result {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+
+    > h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-7xl);
+      font-weight: var(--fw-bold);
+      color: var(--gray);
+    }
+
+    > .card {
+      display: flex;
+      gap: 32px;
+      padding: 32px 40px;
+      width: 100%;
+      align-items: flex-start;
+
+      > .posterWrap {
+        flex-shrink: 0;
+
+        > .poster {
+          border-radius: 14px;
+          object-fit: cover;
+          width: 220px;
+          height: 320px;
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      width: 100%;
+      gap: 10px;
+      > .language {
+        color: var(--red);
+        font-size: 14px;
+        font-weight: var(--fw-normal);
+        margin-bottom: 5px;
+      }
+      > h2 {
+        font-size: 32px;
+        font-weight: var(--fw-bolder);
+        margin-bottom: 10px;
+        width: 400px;
+      }
+      > .rating {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        > span {
+          font-size: var(--fs-lg);
+          color: var(--gray);
+        }
+      }
+
+      > .description {
+        font-size: var(--fs-md);
+        color: var(--gray);
+        width: 500px;
+        margin-bottom: 20px;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+
+        > .watch-trailer-btn,
+        > .buy-ticket-btn {
+          width: 180px;
+          padding: 10px 20px;
+          border-radius: var(--border-radius);
+        }
+
+        > .watch-trailer-btn {
+          background-color: var(--secondary-dark);
+        }
+
+      }
+    }
+  }
+}

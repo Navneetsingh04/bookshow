@@ -1,0 +1,21 @@
+.button{
+    display: flex;
+    width: 130px;
+    height: 50px;
+    gap: 5px;
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    border-radius: 1000px;
+
+    >svg{
+        width: 20px;
+        height: 20px;
+        color: var(--white);
+    }
+    >span{
+        font-size: var(--fs-md);
+        font-weight: var(--fw-medium);
+    }
+}

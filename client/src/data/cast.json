@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Tony Stark",
+        "avatar": "https://wellgroomedgentleman.com/wp-content/uploads/2023/10/tony-stark-beard.original.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Chris Pratt",
+        "avatar": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQn_mZioXGRJcktXrP_5ZZNYA6380ml9MLJHMYi-5hFCOQ8t2Hhoy4xwxXxv2V8vMVFuzRPQBSaFRKvDd0"
+    },
+    {
+        "id": 3,
+        "name": "Chris Hemsworth",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQjg2Jvhvq8G_NZGrK_8Wf5NSjWSvdRYBEdgHlyIYkwmhHMNm_EwtY1_E5MqAE3ElesqE&usqp=CAU"
+    },
+    {
+        "id": 4,
+        "name": "Tom Hiddleston ",
+        "avatar": "https://hips.hearstapps.com/hmg-prod/images/disneys-d23-expo---let-the-adventures-begin-live-action-at-the-walt-disney-studios-presentation.jpg?crop=1xw:1.0xh;center,top&resize=640:*"
+    },
+    {
+        "id": 5,
+        "name": "Dion Farmer",
+        "avatar": "https://robohash.org/cupiditateminuset.png?size=50x50&set=set1"
+    },
+    {
+        "id": 6,
+        "name": "Maximo Kusick",
+        "avatar": "https://robohash.org/sedoccaecatiaut.png?size=50x50&set=set1"
+    },
+    {
+        "id": 7,
+        "name": "Gail Asche",
+        "avatar": "https://robohash.org/dolorcumquefugit.png?size=50x50&set=set1"
+    },
+    {
+        "id": 8,
+        "name": "Delila Godspeede",
+        "avatar": "https://robohash.org/quibusdamquiquis.png?size=50x50&set=set1"
+    },
+    {
+        "id": 9,
+        "name": "Derrik Falkingham",
+        "avatar": "https://robohash.org/suscipitexrepellat.png?size=50x50&set=set1"
+    },
+    {
+        "id": 10,
+        "name": "Dav Tollow",
+        "avatar": "https://robohash.org/eiuseaunde.png?size=50x50&set=set1"
+    }
+]

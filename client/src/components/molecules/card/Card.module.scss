@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  padding: 15px;
+  height: 340px;
+  width: 268px;
+  flex-direction: column;
+  background-color: var(--dark);
+  border-radius: 16px;
+  
+  > article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > img {
+      width: 100%;
+      height: 168px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    
+    > h2 {
+      font-size: 18px;
+      font-weight: var(--fw-bold);
+      color: var(--white);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    
+    > p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    
+    > .cardActions {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-top: auto;
+
+      > .btn {
+        width: 106px;
+        height: 38px;
+      }
+
+      > .rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: var(--fs-md);
+        color: var(--gray);
+
+        > span {
+          color: var(--white);
+          font-weight: var(--fw-bold);
+        }
+      }
+    }
+  }
+}
