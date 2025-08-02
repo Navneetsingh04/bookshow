@@ -4,14 +4,12 @@ A full-stack movie booking platform built with **React** and **Node.js** that al
 
 ## 📚 Table of Contents
 
+- [🖼️ Screenshots](#️-screenshots)
 - [🌟 Features](#-features)
 - [🛠️ Tech Stack](#-tech-stack)
 - [🚀 Installation & Setup](#-installation--setup)
 - [📁 Project Structure](#-project-structure)
 - [🎯 Usage](#-usage)
-- [🖼️ Screenshots](#️-screenshots)
-- [🔥 Live Demo](#-live-demo)
-- [🔧 Available Scripts](#-available-scripts)
 - [🤝 Contributing](#-contributing)
 - [📝 License](#-license)
 - [👨‍💻 Author](#-author)
