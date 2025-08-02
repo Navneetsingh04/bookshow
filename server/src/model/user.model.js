@@ -30,15 +30,16 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    wishlist: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Movies',
-    }],
+    wishlist: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Movies",
+      },
+    ],
   },
   { timestamps: true }
 );
 
-
-const user = mongoose.model("Users",userSchema);
+const user = mongoose.model("Users", userSchema);
 
 module.exports = user;

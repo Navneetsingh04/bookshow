@@ -79,18 +79,14 @@ const Seat = ({
     }
     if (alreadyFilled.includes(s)) return;
     
-    // Toggle seat selection
     if (selectedSeats.includes(s)) {
-      // Remove seat if already selected
       setSelectedSeats(selectedSeats.filter(seat => seat !== s));
       console.log(`${s} seat is deselected`);
     } else {
-      // Check if maximum limit reached
       if (selectedSeats.length >= 5) {
         toast.warning("You can select maximum 5 seats at a time");
         return;
       }
-      // Add seat to selection
       setSelectedSeats([...selectedSeats, s]);
       console.log(`${s} seat is selected`);
     }
@@ -114,7 +110,7 @@ const Seat = ({
       return;
     }
 
-    // Prepare booking data and show payment popup
+    //  booking data and show payment popup
     const bookingDetails = {
       userId,
       movieId,
@@ -131,7 +127,6 @@ const Seat = ({
   const handlePaymentSuccess = () => {
     // Reset selected seats after successful payment
     setSelectedSeats([]);
-    // Refresh booked seats
     fetchMovies();
   };
 

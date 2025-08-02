@@ -14,7 +14,7 @@ const sendBookingEmail = async (to, subject, htmlContent) => {
     to,
     subject,
     html: htmlContent,
-  }
+  };
 
   await transporter.sendMail(mailOptions);
 };

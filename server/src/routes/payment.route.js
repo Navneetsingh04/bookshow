@@ -9,18 +9,16 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-
 router.get("/get-razorpay-key-id", (req, res) => {
   res.json({ razorpay_key_id: process.env.RAZORPAY_KEY_ID });
 });
-
 
 router.post("/order", async (req, res) => {
   const { amount, orderId } = req.body;
 
   try {
     const options = {
-      amount: amount * 100, 
+      amount: amount * 100,
       currency: "INR",
       receipt: orderId,
     };
@@ -37,9 +35,9 @@ router.post("/order", async (req, res) => {
   }
 });
 
-
 router.post("/verify", (req, res) => {
-  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+    req.body;
 
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
@@ -51,7 +49,9 @@ router.post("/verify", (req, res) => {
   if (expectedSignature === razorpay_signature) {
     return res.json({ success: true });
   } else {
-    return res.status(400).json({ success: false, message: "Payment verification failed" });
+    return res
+      .status(400)
+      .json({ success: false, message: "Payment verification failed" });
   }
 });
 

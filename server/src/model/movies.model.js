@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
 const castSchema = new mongoose.Schema({
-  name: { type: String, required: true },       
-  character: { type: String, required: true },  
-  avatar: { type: String },      
+  name: { type: String, required: true },
+  character: { type: String, required: true },
+  avatar: { type: String },
 });
 
 const tailerSchema = new mongoose.Schema({
   url: { type: String, required: true },
   thumbnail: { type: String, required: true },
-})
+});
 
 const movieSchema = new mongoose.Schema(
   {

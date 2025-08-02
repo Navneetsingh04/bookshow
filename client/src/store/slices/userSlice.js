@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loading: true, // Start with loading true
-  user: null, // Use null instead of empty object
+  loading: true,
+  user: null,
   error: null,
 };
 
@@ -18,25 +18,21 @@ export const userSlice = createSlice({
       state.error = null;
     },
 
-    // on Success -> update payload
-
     userSuccess: (state, action) => {
       state.loading = false;
       state.user = action.payload;
       state.error = null;
     },
 
-    // on failure -> reset the user paylaod
-
     userFailure: (state, action) => {
       state.loading = false;
-      state.user = null; // Use null instead of empty object
+      state.user = null;
       state.error = action.payload;
     },
 
     userLogout: (state) => {
       state.loading = false;
-      state.user = null; // Use null instead of empty object
+      state.user = null;
       state.error = null;
     },
   },

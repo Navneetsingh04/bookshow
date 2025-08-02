@@ -38,7 +38,6 @@ const Navbar = () => {
     try {
       if (user?.email) {
         const res = await logoutUser();
-        // console.log({ res });
         if (res.status === 200) {
           toast.success("Logout Successfully");
           dispatch(userLogout());
@@ -67,10 +66,10 @@ const Navbar = () => {
   useEffect(() => {
     const closeDropdown = (e) => {
       // Check if the click is outside the user menu
-      if (showDropdown && !e.target.closest('[data-user-menu]')) {
+      if (showDropdown && !e.target.closest("[data-user-menu]")) {
         setShowDropdown(false);
       }
-    }
+    };
     if (showDropdown) {
       document.addEventListener("click", closeDropdown);
     }
@@ -131,37 +130,46 @@ const Navbar = () => {
             />
             {showDropdown && (
               <div className={`${style.dropdown} ${style.show}`}>
-                <p onClick={(e) => {
-                  e.stopPropagation();
-                  setShowDropdown(false);
-                  navigate("/my-booking");
-                }}>
-                  <Icon 
-                  icon="lets-icons:ticket-alt"
-                  style={{ marginRight: "8px" , color: "black"}} 
+                <p
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowDropdown(false);
+                    navigate("/my-booking");
+                  }}
+                >
+                  <Icon
+                    icon="lets-icons:ticket-alt"
+                    style={{ marginRight: "8px", color: "black" }}
                   />
-                  My Bookings</p>
-                <p onClick={(e) => {
-                  e.stopPropagation();
-                  setShowDropdown(false);
-                  navigate("/wishlist");
-                }}>
-                  <Icon 
-                  icon="mdi:heart-outline"
-                  style={{ marginRight: "8px" , color: "black"}} 
+                  My Bookings
+                </p>
+                <p
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowDropdown(false);
+                    navigate("/wishlist");
+                  }}
+                >
+                  <Icon
+                    icon="mdi:heart-outline"
+                    style={{ marginRight: "8px", color: "black" }}
                   />
-                  Wishlist</p>
+                  Wishlist
+                </p>
 
-                <p onClick={(e) => {
-                  e.stopPropagation();
-                  setShowDropdown(false);
-                  handleAuthButton();
-                }}>
-                   <Icon 
-                   icon="mdi-light:logout"
-                    style={{ marginRight: "8px" , color: "black"}} 
+                <p
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowDropdown(false);
+                    handleAuthButton();
+                  }}
+                >
+                  <Icon
+                    icon="mdi-light:logout"
+                    style={{ marginRight: "8px", color: "black" }}
                   />
-                  Logout</p>
+                  Logout
+                </p>
               </div>
             )}
           </div>

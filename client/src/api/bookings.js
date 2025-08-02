@@ -24,7 +24,6 @@ const getBookedSeats = async (movieId, date, slot) => {
       return res.data.result
         .filter((booking) => booking.payments?.status === "Completed")
         .flatMap((booking) => {
-          // Handle both array and single seat formats for backward compatibility
           return Array.isArray(booking.seat) ? booking.seat : [booking.seat];
         }); 
     }

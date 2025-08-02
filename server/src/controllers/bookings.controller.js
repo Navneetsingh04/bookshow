@@ -7,7 +7,7 @@ async function createBooking(req, res) {
     const { userId, movieId, seat, seats, slot, bookingDate } = req.body;
 
     const seatsToBook = seats || (seat ? [seat] : []);
-    
+
     if (!userId || !movieId || seatsToBook.length === 0 || !slot) {
       return res.status(400).json({
         success: false,
@@ -15,7 +15,6 @@ async function createBooking(req, res) {
       });
     }
 
-    // Check maximum seat limit
     if (seatsToBook.length > 5) {
       return res.status(400).json({
         success: false,
@@ -23,7 +22,6 @@ async function createBooking(req, res) {
       });
     }
 
-    // Check if any of the seats are already booked
     const alreadyBooked = await Booking.findOne({
       movieId,
       seat: { $in: seatsToBook },
@@ -33,7 +31,7 @@ async function createBooking(req, res) {
         $lte: new Date(new Date(bookingDate).setHours(23, 59, 59, 999)),
       },
     });
-    
+
     if (alreadyBooked) {
       return res.status(409).json({
         success: false,
@@ -41,12 +39,15 @@ async function createBooking(req, res) {
       });
     }
 
-    // Save amount in booking (from req.body.amount or req.body.payments.amount)
-    let bookingData = { 
-      ...req.body, 
-      seat: seatsToBook // Ensure we use the seats array
+    let bookingData = {
+      ...req.body,
+      seat: seatsToBook,
     };
-    if (!bookingData.amount && bookingData.payments && bookingData.payments.amount) {
+    if (
+      !bookingData.amount &&
+      bookingData.payments &&
+      bookingData.payments.amount
+    ) {
       bookingData.amount = bookingData.payments.amount;
     }
     const booking = await Booking.create(bookingData);
@@ -55,22 +56,25 @@ async function createBooking(req, res) {
       .populate("userId")
       .populate("movieId");
 
-    // Sending email after successful booking
-
     try {
       if (populateBooking.userId?.email) {
-        // Prepare email details
         const emailData = {
           userName: populateBooking.userId.name,
           movieName: populateBooking.movieId.title,
-          seat: Array.isArray(populateBooking.seat) ? populateBooking.seat.join(', ') : populateBooking.seat,
+          seat: Array.isArray(populateBooking.seat)
+            ? populateBooking.seat.join(", ")
+            : populateBooking.seat,
           slot: populateBooking.slot,
           status: populateBooking.payments?.status || "Completed",
           date: new Date(populateBooking.bookingDate).toLocaleDateString(),
         };
         const emailContent = emailTemplate(emailData);
         const subject = `Booking Confirmation for ${emailData.movieName}`;
-        await sendBookingEmail(populateBooking.userId.email, subject, emailContent);
+        await sendBookingEmail(
+          populateBooking.userId.email,
+          subject,
+          emailContent
+        );
       }
     } catch (error) {
       console.error("Email sending failed:", error);

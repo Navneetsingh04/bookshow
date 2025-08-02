@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {addCast,addTailers} = require("../controllers/admin.controller");
+const { addCast, addTailers } = require("../controllers/admin.controller");
 
 const router = express.Router();
 

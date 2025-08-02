@@ -27,14 +27,18 @@ export const wishlistSlice = createSlice({
     },
 
     addToWishlist: (state, action) => {
-      const movieExists = state.wishlist.find(movie => movie._id === action.payload._id);
+      const movieExists = state.wishlist.find(
+        (movie) => movie._id === action.payload._id
+      );
       if (!movieExists) {
         state.wishlist.push(action.payload);
       }
     },
 
     removeFromWishlist: (state, action) => {
-      state.wishlist = state.wishlist.filter(movie => movie._id !== action.payload);
+      state.wishlist = state.wishlist.filter(
+        (movie) => movie._id !== action.payload
+      );
     },
 
     clearWishlist: (state) => {
@@ -43,13 +47,13 @@ export const wishlistSlice = createSlice({
   },
 });
 
-export const { 
-  wishlistRequest, 
-  wishlistSuccess, 
-  wishlistFailure, 
-  addToWishlist, 
-  removeFromWishlist, 
-  clearWishlist 
+export const {
+  wishlistRequest,
+  wishlistSuccess,
+  wishlistFailure,
+  addToWishlist,
+  removeFromWishlist,
+  clearWishlist,
 } = wishlistSlice.actions;
 
 export default wishlistSlice.reducer;

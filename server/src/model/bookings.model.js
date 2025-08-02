@@ -13,7 +13,7 @@ const bookingSchema = new mongoose.Schema(
       ref: "Movies",
     },
     seat: {
-      type: [String], // Changed to array to support multiple seats
+      type: [String],
       required: [true, "Seat is required!"],
     },
     payments: {

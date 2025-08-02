@@ -7,7 +7,7 @@ const emailTemplate = require("../utils/emailTemplate");
 async function sendEmail(req, res) {
   const { to, userName, movieName, seat, slot, status, date } = req.body;
 
-   if (!to) {
+  if (!to) {
     console.warn("Email address not provided in request body.");
     return res.status(400).json({ error: "Email address is required." });
   }
@@ -19,19 +19,19 @@ async function sendEmail(req, res) {
       seat,
       slot,
       status,
-      date
+      date,
     });
-    
+
     const subject = `Booking Confirmation for ${movieName}`;
-    
+
     await sendBookingEmail(to, subject, htmlContent);
-    
+
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email sending error:", error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: "Email failed to send",
-      details: error.message 
+      details: error.message,
     });
   }
 }

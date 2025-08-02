@@ -26,11 +26,11 @@ const popUpSlice = createSlice({
   },
 });
 
-export const { 
-  toggleLoginPopup, 
-  toggleRegisterPopup, 
-  closeLoginPopup, 
-  closeRegisterPopup, 
-  closeAllPopups 
+export const {
+  toggleLoginPopup,
+  toggleRegisterPopup,
+  closeLoginPopup,
+  closeRegisterPopup,
+  closeAllPopups,
 } = popUpSlice.actions;
 export default popUpSlice.reducer;

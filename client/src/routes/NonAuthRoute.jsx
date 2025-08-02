@@ -1,10 +1,10 @@
-import React from 'react'
-import { Navigate } from 'react-router';
+import React from "react";
+import { Navigate } from "react-router";
 
 const NonAuthRoute = (props) => {
   const isAuthenticated = false;
 
-  return isAuthenticated ? <Navigate to={"/"} /> : props.children
-}
+  return isAuthenticated ? <Navigate to={"/"} /> : props.children;
+};
 
-export default NonAuthRoute
+export default NonAuthRoute;

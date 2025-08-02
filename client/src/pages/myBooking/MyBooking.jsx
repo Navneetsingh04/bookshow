@@ -18,8 +18,7 @@ const MyBooking = () => {
       return;
     }
     try {
-      const res = await getBookingsByUser(userId); // pass userId
-      // API returns { success, result: bookings }
+      const res = await getBookingsByUser(userId); 
       setBookings(res.data.result || []);
     } catch (error) {
       console.error("Failed to fetch bookings:", error);
@@ -31,7 +30,6 @@ const MyBooking = () => {
 
   useEffect(() => {
     fetchBookings();
-    // eslint-disable-next-line
   }, [userId]);
 
   if (loading) return <p className={style.loadingText}>Loading bookings...</p>;

@@ -8,8 +8,8 @@ import wishlistReducer from "./slices/wishlistSlice";
 export const store = configureStore({
   reducer: {
     popup: popUpReducer,
-    user : userReducer,
-    booking : bookingReducer,
+    user: userReducer,
+    booking: bookingReducer,
     wishlist: wishlistReducer,
   },
 });

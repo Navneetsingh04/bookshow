@@ -43,7 +43,7 @@ async function getMovie(req, res) {
       description: 1,
       rating: 1,
       cast: 1,
-      languages: 1
+      languages: 1,
     });
     if (!movie) {
       return res.status(404).json({ message: "Movie Not found" });
@@ -96,11 +96,11 @@ async function getHomePageMovies(req, res) {
   }
 }
 
-async function getCast(req,res){
+async function getCast(req, res) {
   try {
-    const { id}  = req.params;
+    const { id } = req.params;
     const movie = await Movies.findById(id).select("cast");
-    if(!movie) {
+    if (!movie) {
       return res.status(404).json({ message: "Movie Not Found" });
     }
     res.status(200).json(movie.cast);
@@ -109,11 +109,11 @@ async function getCast(req,res){
   }
 }
 
-async function getTailers(req,res){
+async function getTailers(req, res) {
   try {
     const { id } = req.params;
     const movie = await Movies.findById(id).select("trailer");
-    if(!movie) {
+    if (!movie) {
       return res.status(404).json({ message: "Movie Not Found" });
     }
     res.status(200).json(movie.trailer);

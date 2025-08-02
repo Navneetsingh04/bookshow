@@ -23,8 +23,8 @@ app.use(
 const { logMiddleware } = require("./src/middlewares");
 const userRouter = require("./src/routes/user.route");
 const movieRouter = require("./src/routes/movies.route");
-const bookingRouter = require("./src/routes/bookings.route")
-const emailRouter = require("./src/routes/sendEmail.route")
+const bookingRouter = require("./src/routes/bookings.route");
+const emailRouter = require("./src/routes/sendEmail.route");
 const authRouter = require("./src/routes/auth.route");
 const paymentRouter = require("./src/routes/payment.route");
 const adminRouter = require("./src/routes/admin.Routes");
@@ -41,11 +41,10 @@ app.use("/api/users", userRouter);
 app.use("/api/users", wishlistRouter);
 app.use("/api/movies", movieRouter);
 app.use("/api/bookings", bookingRouter);
-app.use("/api/email",emailRouter)
-app.use("/api/payment",paymentRouter)
+app.use("/api/email", emailRouter);
+app.use("/api/payment", paymentRouter);
 app.use("/api/admin", adminRouter);
 // app.use("/reviews", reviewsRouter);
-
 
 app.listen(process.env.PORT || 4001, () => {
   console.log(`Server is running on port ${process.env.PORT || 4001}`);

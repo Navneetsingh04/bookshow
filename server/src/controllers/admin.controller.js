@@ -29,7 +29,9 @@ async function addTailers(req, res) {
     const { url, thumbnail } = req.body;
 
     if (!url || !thumbnail) {
-      return res.status(400).json({ message: "URL and Thumbnail are required" });
+      return res
+        .status(400)
+        .json({ message: "URL and Thumbnail are required" });
     }
 
     const movie = await Movies.findById(id);
@@ -44,4 +46,4 @@ async function addTailers(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-module.exports = { addCast,addTailers };
+module.exports = { addCast, addTailers };
