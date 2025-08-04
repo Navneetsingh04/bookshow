@@ -75,7 +75,7 @@ async function loginUser(req, res) {
 
     res.cookie(process.env.AUTH_COOKIE, Auth_Token, {
       httpOnly: true,
-      secure:  true,
+      secure: true,
       sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
@@ -137,8 +137,8 @@ async function logoutUser(req, res) {
     if (userId) {
       res.cookie("auth-token", "", {
         httpOnly: true,
-        secure: false,
-        sameSite: "strict",
+        secure: true,
+        sameSite: "None",
         maxAge: 0,
       });
       return res
