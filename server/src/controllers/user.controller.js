@@ -75,7 +75,7 @@ async function loginUser(req, res) {
 
     res.cookie(process.env.AUTH_COOKIE, Auth_Token, {
       httpOnly: true,
-      secure: false,
+      secure:  true,
       sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
