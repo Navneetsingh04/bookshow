@@ -2,6 +2,10 @@
 
 A full-stack movie booking platform built with **React** and **Node.js** that allows users to browse movies, book tickets, manage wishlists, and handle payments seamlessly.
 
+## 🔥 Live Demo
+
+Check out the live version here: [bookshow-six.vercel.app](https://bookshow-six.vercel.app/) 
+
 ## 📚 Table of Contents
 
 - [🖼️ Screenshots](#️-screenshots)
