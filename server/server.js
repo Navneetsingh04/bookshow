@@ -8,10 +8,6 @@ require("dotenv").config();
 // db connection
 require("./src/db");
 
-// Global MiddleWare
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
 const allowedOrigins = (process.env.CORS_ORIGIN || "")
   .split(",")
   .map((origin) => origin.trim());
@@ -27,6 +23,11 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use(express.json({ limit: "1mb" })); //set the limit of data to sending
+app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+app.use(express.static("public"));
+app.use(cookieParser());
 
 // Local modules
 const { logMiddleware } = require("./src/middlewares");
