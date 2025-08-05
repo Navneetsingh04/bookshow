@@ -4,7 +4,7 @@ A full-stack movie booking platform built with **React** and **Node.js** that al
 
 ## 🔥 Live Demo
 
-Check out the live version here: [bookshow-six.vercel.app](https://bookshow-movies.vercel.app) 
+Check out the live version here: [bookshow-movies.vercel.app](https://bookshow-movies.vercel.app) 
 
 ## 📚 Table of Contents
 
